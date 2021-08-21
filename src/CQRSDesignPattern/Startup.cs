@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using CQRSDesignPattern.Data;
 using CQRSDesignPattern.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using MediatR;
 
 namespace CQRSDesignPattern
 {
@@ -27,6 +29,8 @@ namespace CQRSDesignPattern
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IPlayersService, PlayersService>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
