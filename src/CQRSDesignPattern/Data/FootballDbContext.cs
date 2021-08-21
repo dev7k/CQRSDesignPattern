@@ -18,9 +18,16 @@ namespace CQRSDesignPattern.Data
         {
         }
 
+        public virtual DbSet<Player> Players { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Player>(entity =>
+            {
+                entity.Property(e => e.Name).HasMaxLength(50);
+            });
 
             OnModelCreatingPartial(modelBuilder);
         }
