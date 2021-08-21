@@ -5,7 +5,7 @@ using CQRSDesignPattern.Models;
 using CQRSDesignPattern.Services;
 using MediatR;
 
-namespace CQRSDesignPatternDemo.Features.Players.Queries
+namespace CQRSDesignPattern.Features.Players.Queries
 {
     public class GetAllPlayersQuery : IRequest<IEnumerable<Player>>
     {
