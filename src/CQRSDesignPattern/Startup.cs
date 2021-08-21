@@ -22,11 +22,11 @@ namespace CQRSDesignPattern
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+
             services.AddDbContext<FootballDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
-            services.AddScoped<IPlayersService, PlayersService>(); 
+
+            services.AddScoped<IPlayersService, PlayersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
